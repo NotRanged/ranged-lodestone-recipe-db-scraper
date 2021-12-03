@@ -78,10 +78,20 @@ LEVEL_DIFF = {
     77: [ 335 ], # 412
     78: [ 337 ], # 415
     79: [ 339 ], # 418
-    80: [ 350, 360, 370, 400, 430 ], # 430, 440, 450, 480, 510
+    80: [ 350, 360, 370, 400, 430 ], # 430, 440, 450, 480, 510,
+    81: [], # Yeah idk how these numbers were acquired, are they even necessary?
+    82: [],
+    83: [],
+    84: [],
+    85: [],
+    86: [],
+    87: [],
+    88: [],
+    89: [],
+    90: [], 
 }
 
-MAX_LEVEL = 80
+MAX_LEVEL = 90
 LEVEL_RANGES = ["{0}-{1}".format(start, start + 4) for start in range(1, MAX_LEVEL, 5)]
 NUM_LEVEL_RANGES = len(LEVEL_RANGES)
 NUM_ADDITIONAL_RECIPE_CATEGORIES = 8
