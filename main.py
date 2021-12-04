@@ -79,16 +79,16 @@ LEVEL_DIFF = {
     78: [ 337 ], # 415
     79: [ 339 ], # 418
     80: [ 350, 360, 370, 400, 430 ], # 430, 440, 450, 480, 510,
-    81: [], # Yeah idk how these numbers were acquired, are they even necessary?
-    82: [],
-    83: [],
-    84: [],
-    85: [],
-    86: [],
-    87: [],
-    88: [],
-    89: [],
-    90: [], 
+    81: [ 436 ], # 517 # Yeah idfk how these numbers were acquired, are they even necessary?
+    82: [ 438 ], # 520 # okay turns out they are kinda necessary
+    83: [ 442 ], # 525 # find them by recipe itemlevel - level
+    84: [ 446 ], # 530 # e.g.: 530 - 84 = 446
+    85: [ 450 ], # 535 # thanks for wasting considerable amounts of my time by just not documenting shit properly :/
+    86: [ 454 ], # 540
+    87: [ 458 ], # 545
+    88: [ 462 ], # 550
+    89: [ 468 ], # 555
+    90: [ 470, 480 ] # 560, 570
 }
 
 MAX_LEVEL = 90
