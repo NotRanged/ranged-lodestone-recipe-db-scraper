@@ -26,7 +26,7 @@ to install Python and all the dependencies, and then run Python as described bel
 
 Run `main.py` with the following arguments:
 
-    python main.py -l cn=items_cn.json -r all
+    python main.py -r all
     
 It will output its progress to stdout and generate `json` files in the `out` subdirectory.
 
