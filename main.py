@@ -78,7 +78,7 @@ LEVEL_DIFF = {
     77: [ 335 ], # 412
     78: [ 337 ], # 415
     79: [ 339 ], # 418
-    80: [ 350, 360, 370, 400, 430 ], # 430, 440, 450, 480, 510,
+    80: [ 350, 360, 370, 400, 430, 436 ], # 430, 440, 450, 480, 510, 516
     81: [ 436 ], # 517 # Yeah idfk how these numbers were acquired, are they even necessary?
     82: [ 438 ], # 520 # okay turns out they are kinda necessary
     83: [ 442 ], # 525 # find them by recipe itemlevel - level
@@ -278,7 +278,9 @@ async def fetch_recipe(session: aiohttp.ClientSession, rel_link: str):
         try:
             level_adjustment = LEVEL_DIFF[base_level][stars]
         except IndexError:
-            logError(f"Unsupported number of stars ({stars}) for level {base_level}.")
+            craft_data = tree.xpath("//ul[@class='db-view__recipe__craftdata']")[0]
+            max_quality = int(craft_data.xpath("li[span='Maximum Quality']/text()")[0])
+            logError(f"Unsupported number of stars ({stars}) for level {base_level}. Item: {max_quality}")
             raise SystemExit
 
     level = base_level + level_adjustment
