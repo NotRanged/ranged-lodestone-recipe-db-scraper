@@ -278,8 +278,6 @@ async def fetch_recipe(session: aiohttp.ClientSession, rel_link: str):
         try:
             level_adjustment = LEVEL_DIFF[base_level][stars]
         except IndexError:
-            craft_data = tree.xpath("//ul[@class='db-view__recipe__craftdata']")[0]
-            max_quality = int(craft_data.xpath("li[span='Maximum Quality']/text()")[0])
             logError(f"Unsupported number of stars ({stars}) for level {base_level}. Item: {max_quality}")
             raise SystemExit
 
