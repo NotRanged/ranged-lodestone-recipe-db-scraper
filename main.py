@@ -10,7 +10,6 @@ import sys
 import time
 from typing import Mapping, Sequence
 from urllib.parse import urlunparse
-from typing import Tuple
 
 import aiohttp
 import lxml.html as html
@@ -197,7 +196,7 @@ async def fetch(session: aiohttp.ClientSession, url: str, **kwargs):
     raise SystemExit
 
 
-def parse_links_page(text: str) -> Tuple[Sequence[str], int, int]:
+def parse_links_page(text: str) -> (Sequence[str], int, int):
     tree = html.fromstring(text)
     rel_links = tree.xpath("//div/@data-ldst-href")
     links = map(str, rel_links)
@@ -206,7 +205,7 @@ def parse_links_page(text: str) -> Tuple[Sequence[str], int, int]:
     return links, show_end, total
 
 
-async def fetch_recipe_links_page(session: aiohttp.ClientSession, cls: str, category: str, page: int) -> Tuple[Sequence[str], int, int]:
+async def fetch_recipe_links_page(session: aiohttp.ClientSession, cls: str, category: str, page: int) -> (Sequence[str], int, int):
     params = {
         "category2": CLASSES.index(cls),
         "category3": category,
@@ -430,7 +429,7 @@ def extract_item_attr(text, item):
     return found_attr
 
 
-async def fetch_item(session: aiohttp.ClientSession, rel_link: str) -> Tuple[dict, dict]:
+async def fetch_item(session: aiohttp.ClientSession, rel_link: str) -> (dict, dict):
     pages = await fetch_pages_all_langs(session, rel_link)
 
     tree = pages["en"]
